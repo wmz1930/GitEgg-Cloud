@@ -37,6 +37,9 @@
         <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
         <!-- SpringCloud版本号 -->
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+        <!-- SpringPlatform版本号 -->
+        <spring.platform.version>Cairo-SR8</spring.platform.version>
+
     </properties>
 
     <dependencies>
@@ -65,7 +68,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            
+            <!-- GitEgg-Component相关Jar包 -->
+            <dependency>
+                <groupId>com.gitegg.platform</groupId>
+                <artifactId>gitegg-platform-bom</artifactId>
+                <version>${gitegg.project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -104,12 +115,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <!-- Srping Boot 打包工具 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- 指定JDK编译版本 -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.plugin.version}</version>
@@ -124,4 +133,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>
